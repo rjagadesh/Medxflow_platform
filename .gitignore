@@ -1,0 +1,31 @@
+# Python / Django
+**/venv/
+**/.venv/
+__pycache__/
+*.pyc
+*.sqlite3
+
+# Node / React
+**/node_modules/
+**/dist/
+.vite/
+.netlify/
+
+# Secrets / env (NEVER commit)
+.env
+**/.env
+**/creds.txt
+**/creds.json
+**/credentials.json
+**/access_token.json
+
+# Large reference material / attachments (not part of the app)
+*.zip
+insurance verifcation module/
+Voice AI/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+VOB_Portal/
+New folder/
