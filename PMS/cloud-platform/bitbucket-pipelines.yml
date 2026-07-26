@@ -1,0 +1,17 @@
+image: node:22
+
+pipelines:
+  branches:
+    Dev:
+      - step:
+          name: Build & Deploy React to EC2
+          caches:
+            - node
+          script:
+            - pipe: atlassian/ssh-run:0.4.2
+              variables:
+                SSH_USER: "ubuntu"
+                SERVER: "54.164.40.218"
+                COMMAND: |
+                  set -euo pipefail
+                  stdbuf -oL -eL bash -x /home/ubuntu/react-app/deploy.sh

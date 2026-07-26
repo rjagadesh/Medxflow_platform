@@ -1,0 +1,568 @@
+{
+  "meta": {
+    "senderId": "STEDI",
+    "submitterId": "117151744",
+    "applicationMode": "production",
+    "traceId": "01KCYN3BYEZ88EAB4PE6CMH9PM",
+    "outboundTraceId": "01KCYN3BYEZ88EAB4PE6CMH9PM"
+  },
+  "controlNumber": "184379086",
+  "reassociationKey": "184379086",
+  "tradingPartnerServiceId": "84980",
+  "provider": {
+    "providerName": "ACME HEALTH SERVICES",
+    "entityIdentifier": "Provider",
+    "entityType": "Non-Person Entity",
+    "npi": "1999999984"
+  },
+  "subscriber": {
+    "memberId": "R50287926",
+    "firstName": "MELLISSA",
+    "lastName": "DIAS",
+    "middleName": "A",
+    "gender": "F",
+    "entityIdentifier": "Insured or Subscriber",
+    "entityType": "Person",
+    "dateOfBirth": "19640702",
+    "groupNumber": "111",
+    "address": {
+      "address1": "11113 CHERRYWOOD LN",
+      "city": "RIVERVIEW",
+      "state": "FL",
+      "postalCode": "335797107"
+    }
+  },
+  "subscriberTraceNumbers": [
+    {
+      "traceTypeCode": "1",
+      "traceType": "Current Transaction Trace Numbers",
+      "referenceIdentification": "01KCYN3BZTJ3P4Q16EZPTBJGBX",
+      "originatingCompanyIdentifier": "3117151744"
+    }
+  ],
+  "payer": {
+    "entityIdentifier": "Payer",
+    "entityType": "Non-Person Entity",
+    "name": "G84980",
+    "payorIdentification": "G84980"
+  },
+  "planInformation": {
+    "groupNumber": "111"
+  },
+  "planDateInformation": {
+    "planBegin": "20080106"
+  },
+  "planStatus": [
+    {
+      "statusCode": "1",
+      "status": "Active Coverage",
+      "planDetails": "BASIC",
+      "serviceTypeCodes": [
+        "30"
+      ]
+    }
+  ],
+  "benefitsInformation": [
+    {
+      "code": "1",
+      "name": "Active Coverage",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "30"
+      ],
+      "serviceTypes": [
+        "Health Benefit Plan Coverage"
+      ],
+      "insuranceTypeCode": "PR",
+      "insuranceType": "Preferred Provider Organization (PPO)",
+      "planCoverage": "BASIC",
+      "benefitsDateInformation": {
+        "planBegin": "20080106"
+      }
+    },
+    {
+      "code": "P",
+      "name": "Benefit Disclaimer",
+      "additionalInformation": [
+        {
+          "description": "UNLESS OTHERWISE REQUIRED BY APPROPRIATE LAW, THIS NOTICE IS NOT A GUARANTEE OF PAYMENT. BENEFITS ARE SUBJECT TO ALL CONTRACT LIMITATIONS AND THE MEMBER'S ELIGIBILITY STATUS ON THE DATE OF SERVICE. PAID-TO-DATE AMOUNTS REFLECT ONLY FINALIZED CLAIMS."
+        }
+      ]
+    },
+    {
+      "code": "G",
+      "name": "Out of Pocket (Stop Loss)",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "30"
+      ],
+      "serviceTypes": [
+        "Health Benefit Plan Coverage"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "29",
+      "timeQualifier": "Remaining",
+      "benefitAmount": "4624.81",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes"
+    },
+    {
+      "code": "G",
+      "name": "Out of Pocket (Stop Loss)",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "30"
+      ],
+      "serviceTypes": [
+        "Health Benefit Plan Coverage"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "23",
+      "timeQualifier": "Calendar Year",
+      "benefitAmount": "7500",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes"
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5",
+        "50"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab",
+        "Hospital - Outpatient"
+      ],
+      "planCoverage": "BASIC",
+      "benefitPercent": "0.3",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes",
+      "additionalInformation": [
+        {
+          "description": "AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE"
+        }
+      ]
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5",
+        "50"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab",
+        "Hospital - Outpatient"
+      ],
+      "planCoverage": "BASIC",
+      "benefitPercent": "0.3",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE; PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS"
+        }
+      ]
+    },
+    {
+      "code": "I",
+      "name": "Non-Covered",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "EXCEPT SERVICES BILLED BY LABORATORIES AND RADIOLOGISTS"
+        }
+      ]
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "27",
+      "timeQualifier": "Visit",
+      "benefitPercent": "0.15",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes"
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "27",
+      "timeQualifier": "Visit",
+      "benefitPercent": "0.15",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "SERVICES RENDERED BY NON-PARTICIPATING LABORATORIES AND/OR RADIOLOGISTS IN A PREFERRED FACILITY"
+        }
+      ],
+      "eligibilityAdditionalInformation": {
+        "codeListQualifierCode": "ZZ",
+        "codeListQualifier": "Mutually Defined",
+        "industryCode": "81",
+        "industry": "Independent Laboratory"
+      },
+      "eligibilityAdditionalInformationList": [
+        {
+          "codeListQualifierCode": "ZZ",
+          "codeListQualifier": "Mutually Defined",
+          "industryCode": "81",
+          "industry": "Independent Laboratory"
+        }
+      ]
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "27",
+      "timeQualifier": "Visit",
+      "benefitPercent": "0.15",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "NON-PARTICIPATING LABORATORIES AND/OR RADIOLOGISTS; PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS"
+        }
+      ],
+      "eligibilityAdditionalInformation": {
+        "codeListQualifierCode": "ZZ",
+        "codeListQualifier": "Mutually Defined",
+        "industryCode": "81",
+        "industry": "Independent Laboratory"
+      },
+      "eligibilityAdditionalInformationList": [
+        {
+          "codeListQualifierCode": "ZZ",
+          "codeListQualifier": "Mutually Defined",
+          "industryCode": "81",
+          "industry": "Independent Laboratory"
+        }
+      ]
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "benefitPercent": "0.3",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE; PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS"
+        }
+      ],
+      "eligibilityAdditionalInformation": {
+        "codeListQualifierCode": "ZZ",
+        "codeListQualifier": "Mutually Defined",
+        "industryCode": "81",
+        "industry": "Independent Laboratory"
+      },
+      "eligibilityAdditionalInformationList": [
+        {
+          "codeListQualifierCode": "ZZ",
+          "codeListQualifier": "Mutually Defined",
+          "industryCode": "81",
+          "industry": "Independent Laboratory"
+        }
+      ]
+    },
+    {
+      "code": "B",
+      "name": "Co-Payment",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "27",
+      "timeQualifier": "Visit",
+      "benefitAmount": "100",
+      "authOrCertIndicator": "Y",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes",
+      "additionalInformation": [
+        {
+          "description": "GENETIC TESTING"
+        }
+      ]
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "27",
+      "timeQualifier": "Visit",
+      "benefitPercent": "0.3",
+      "authOrCertIndicator": "Y",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes",
+      "additionalInformation": [
+        {
+          "description": "AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE"
+        }
+      ]
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "27",
+      "timeQualifier": "Visit",
+      "benefitPercent": "0.15",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS"
+        }
+      ]
+    },
+    {
+      "code": "B",
+      "name": "Co-Payment",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "27",
+      "timeQualifier": "Visit",
+      "benefitAmount": "100",
+      "authOrCertIndicator": "Y",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "GENETIC TESTING WHEN BILLED BY NON-PARTICIPATING LABORATORIES OR RADIOLOGISTS;PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS"
+        }
+      ]
+    },
+    {
+      "code": "B",
+      "name": "Co-Payment",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "5"
+      ],
+      "serviceTypes": [
+        "Diagnostic Lab"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "27",
+      "timeQualifier": "Visit",
+      "benefitAmount": "100",
+      "authOrCertIndicator": "Y",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "GENETIC TESTING;PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS"
+        }
+      ],
+      "eligibilityAdditionalInformation": {
+        "codeListQualifierCode": "ZZ",
+        "codeListQualifier": "Mutually Defined",
+        "industryCode": "81",
+        "industry": "Independent Laboratory"
+      },
+      "eligibilityAdditionalInformationList": [
+        {
+          "codeListQualifierCode": "ZZ",
+          "codeListQualifier": "Mutually Defined",
+          "industryCode": "81",
+          "industry": "Independent Laboratory"
+        }
+      ]
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "50"
+      ],
+      "serviceTypes": [
+        "Hospital - Outpatient"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "7",
+      "timeQualifier": "Day",
+      "benefitPercent": "0.15",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes"
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "50"
+      ],
+      "serviceTypes": [
+        "Hospital - Outpatient"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "7",
+      "timeQualifier": "Day",
+      "benefitPercent": "0.15",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS"
+        }
+      ]
+    },
+    {
+      "code": "B",
+      "name": "Co-Payment",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "50"
+      ],
+      "serviceTypes": [
+        "Hospital - Outpatient"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "7",
+      "timeQualifier": "Day",
+      "benefitAmount": "250",
+      "authOrCertIndicator": "Y",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes",
+      "additionalInformation": [
+        {
+          "description": "GENETIC TESTING"
+        }
+      ]
+    },
+    {
+      "code": "A",
+      "name": "Co-Insurance",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "50"
+      ],
+      "serviceTypes": [
+        "Hospital - Outpatient"
+      ],
+      "planCoverage": "BASIC",
+      "benefitPercent": "0.3",
+      "authOrCertIndicator": "Y",
+      "inPlanNetworkIndicatorCode": "Y",
+      "inPlanNetworkIndicator": "Yes",
+      "additionalInformation": [
+        {
+          "description": "AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE"
+        }
+      ]
+    },
+    {
+      "code": "B",
+      "name": "Co-Payment",
+      "coverageLevelCode": "IND",
+      "coverageLevel": "Individual",
+      "serviceTypeCodes": [
+        "50"
+      ],
+      "serviceTypes": [
+        "Hospital - Outpatient"
+      ],
+      "planCoverage": "BASIC",
+      "timeQualifierCode": "7",
+      "timeQualifier": "Day",
+      "benefitAmount": "250",
+      "authOrCertIndicator": "Y",
+      "inPlanNetworkIndicatorCode": "N",
+      "inPlanNetworkIndicator": "No",
+      "additionalInformation": [
+        {
+          "description": "GENETIC TESTING; PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "x12": "ISA*00*          *00*          *ZZ*STEDI          *01*117151744      *251220*1452*^*00501*184379086*0*P*:~GS*HB*STEDI*117151744*20251220*145203*1*X*005010X279A1~ST*271*1001*005010X279A1~BHT*0022*11*01KCYN3BYEZ88EAB4PE6CMH9PM*20251220*14520340~HL*1**20*1~NM1*PR*2*G84980*****PI*G84980~HL*2*1*21*1~NM1*1P*2*ACME HEALTH SERVICES*****XX*1999999984~HL*3*2*22*0~TRN*1*01KCYN3BZTJ3P4Q16EZPTBJGBX*3117151744~NM1*IL*1*DIAS*MELLISSA*A***MI*R50287926~REF*6P*111~N3*11113 CHERRYWOOD LN~N4*RIVERVIEW*FL*335797107~DMG*D8*19640702*F~INS*Y*18*001*25~DTP*346*D8*20080106~EB*1*IND*30*PR*BASIC~DTP*346*D8*20080106~EB*P~MSG*UNLESS OTHERWISE REQUIRED BY APPROPRIATE LAW, THIS NOTICE IS NOT A GUARANTEE OF PAYMENT. BENEFITS ARE SUBJECT TO ALL CONTRACT LIMITATIONS AND THE MEMBER'S ELIGIBILITY STATUS ON THE DATE OF SERVICE. PAID-TO-DATE AMOUNTS REFLECT ONLY FINALIZED CLAIMS.~EB*G*IND*30**BASIC*29*4624.81*****Y~EB*G*IND*30**BASIC*23*7500*****Y~EB*A*IND*5^50**BASIC***.3****Y~MSG*AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE~EB*A*IND*5^50**BASIC***.3****N~MSG*AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE; PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS~EB*I**5**BASIC*******N~MSG*EXCEPT SERVICES BILLED BY LABORATORIES AND RADIOLOGISTS~EB*A*IND*5**BASIC*27**.15****Y~EB*A*IND*5**BASIC*27**.15****N~MSG*SERVICES RENDERED BY NON-PARTICIPATING LABORATORIES AND/OR RADIOLOGISTS IN A PREFERRED FACILITY~III*ZZ*81~EB*A*IND*5**BASIC*27**.15****N~MSG*NON-PARTICIPATING LABORATORIES AND/OR RADIOLOGISTS; PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS~III*ZZ*81~EB*A*IND*5**BASIC***.3****N~MSG*AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE; PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS~III*ZZ*81~EB*B*IND*5**BASIC*27*100****Y*Y~MSG*GENETIC TESTING~EB*A*IND*5**BASIC*27**.3***Y*Y~MSG*AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE~EB*A*IND*5**BASIC*27**.15****N~MSG*PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS~EB*B*IND*5**BASIC*27*100****Y*N~MSG*GENETIC TESTING WHEN BILLED BY NON-PARTICIPATING LABORATORIES OR RADIOLOGISTS;PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS~EB*B*IND*5**BASIC*27*100****Y*N~MSG*GENETIC TESTING;PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS~III*ZZ*81~EB*A*IND*50**BASIC*7**.15****Y~EB*A*IND*50**BASIC*7**.15****N~MSG*PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS~EB*B*IND*50**BASIC*7*250****Y*Y~MSG*GENETIC TESTING~EB*A*IND*50**BASIC***.3***Y*Y~MSG*AGENTS, DRUGS AND/OR SUPPLIES ADMINISTERED OR OBTAINED IN CONNECTION WITH CARE~EB*B*IND*50**BASIC*7*250****Y*N~MSG*GENETIC TESTING; PLUS ANY DIFFERENCE BETWEEN ALLOWED AND BILLED AMOUNTS~SE*58*1001~GE*1*1~IEA*1*184379086~",
+  "eligibilitySearchId": "019b3d51-afc1-7161-b660-163d880bed7d"
+}

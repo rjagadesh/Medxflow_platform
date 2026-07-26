@@ -1,0 +1,49 @@
+
+app.models.UserDetails.__str__F
+<D:\cloud-Droidal\CLOUD_DROIDAL_BETA\droidal2.0\app\models.pyD D("2*Ú
+2E E(F`
+^
+E E(!
+%1"__id*F
+
+__unknown_file (**(
+app.models.UserDetails"
+
+first_name_
+]
+E$ E(2
+%2"__id*E
+
+__unknown_file ()*'
+app.models.UserDetails"
+	last_name^
+\
+E6 E(C
+%3"__id*D
+
+__unknown_file ((*&
+app.models.UserDetails"
+
+username“
+
+E E(F
+%4"__concat*
+E E(!
+
+%1*
+E" E(#
+ *
+E$ E(2
+
+%2*
+E3 E(5
+ (*
+E6 E(C
+
+%3*
+ED E(E
+)"
+E E(F
+
+%4B
+app.models.UserDetailsH

@@ -1,0 +1,208 @@
+.voice-ai-chat-wrapper {
+  /* Variables from source index.css */
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 199 89% 48%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 35 92% 50%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 199 89% 48%;
+
+  /* Fonts */
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+
+  /* Glow Effects */
+  --glow-cyan: 0 0 20px rgba(0, 217, 255, 0.5);
+  --glow-orange: 0 0 20px rgba(255, 140, 0, 0.5);
+
+  /* Shadows */
+  --shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
+  --shadow-sm:
+    0px 4px 8px -1px hsl(0 0% 0% / 0.1), 0px 1px 2px -2px hsl(0 0% 0% / 0.1);
+  --shadow:
+    0px 4px 8px -1px hsl(0 0% 0% / 0.1), 0px 1px 2px -2px hsl(0 0% 0% / 0.1);
+  --shadow-md:
+    0px 4px 8px -1px hsl(0 0% 0% / 0.1), 0px 2px 4px -2px hsl(0 0% 0% / 0.1);
+  --shadow-lg:
+    0px 4px 8px -1px hsl(0 0% 0% / 0.1), 0px 4px 6px -2px hsl(0 0% 0% / 0.1);
+  --shadow-xl:
+    0px 4px 8px -1px hsl(0 0% 0% / 0.1), 0px 8px 10px -2px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
+
+  /* Misc */
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+
+  letter-spacing: var(--tracking-normal);
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+}
+
+/* Custom Utilities - manually mapped or used in CSS */
+.voice-ai-chat-wrapper .shadow-glow-cyan {
+  box-shadow: var(--glow-cyan);
+}
+
+.voice-ai-chat-wrapper .animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* App.css Content */
+.voice-ai-chat-wrapper .logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.voice-ai-chat-wrapper .logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.voice-ai-chat-wrapper .logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .voice-ai-chat-wrapper a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.voice-ai-chat-wrapper .card {
+  padding: 2em;
+}
+
+.voice-ai-chat-wrapper .read-the-docs {
+  color: #888;
+}
+
+:root {
+  --beam-border: 2px;
+  --beam-radius: 2rem;
+}
+
+.beamButton {
+  padding: 20px 140px 20px 20px !important;
+  background: #000 !important;
+  color: #fff !important;
+  font-family: monospace !important;
+  border-radius: var(--beam-radius) !important;
+  border: none;
+  cursor: pointer !important;
+  overflow: hidden !important;
+
+  /* animation: glow2 linear 2s infinite !important; */
+
+  position: relative !important;
+}
+
+.beamButton::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  aspect-ratio: 1/1 !important;
+  width: 150% !important;
+  height: auto !important;
+  border-radius: 50% !important;
+  background: conic-gradient(
+    #fff 0%,
+    #000 3%,
+    #297ef6 60%,
+    #eb5a29 100%
+  ) !important;
+  animation: spin2 linear 2s infinite !important;
+  transform: translate(-50%, -50%);
+}
+
+.beamButton::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: calc(100% - var(--beam-border)) !important;
+  height: calc(100% - var(--beam-border)) !important;
+  background: #000d !important;
+  transform: translate(-50%, -50%) !important;
+  border-radius: var(--beam-radius) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.beamButton .label {
+  line-height: normal;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute !important;
+  text-wrap: nowrap !important;
+  z-index: 1 !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  line-height: normal;
+}
+
+@keyframes spin2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes glow2 {
+  0% {
+    border: 0 transparent solid;
+  }
+  25% {
+    border: 2px #4094 solid;
+  }
+  50% {
+    border: 4px transparent solid;
+  }
+  100% {
+    border: 0 transparent solid;
+  }
+}

@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Droidal License Certificate</title>
+    <style>
+      @page {
+        size: letter;
+        margin: 0.75in;
+      }
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 10pt;
+        color: #4a5568;
+        /* background-image removed */
+        background-color: #f8f8f8; /* fallback color */
+      }
+      .header {
+        text-align: right;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e2e8f0;
+        margin-bottom: 30px;
+      }
+      .header strong {
+        font-size: 14pt;
+        color: #2d3748;
+      }
+      .footer {
+        text-align: center;
+        font-size: 8pt;
+        color: #a0aec0;
+        position: fixed;
+        bottom: 0.5in;
+        left: 0.75in;
+        right: 0.75in;
+      }
+      h1 {
+        font-weight: 700;
+        font-size: 26pt;
+        color: #1a202c;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      h2 {
+        font-size: 14pt;
+        color: #718096;
+        text-align: center;
+        margin-top: 0;
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 0;
+      }
+      .info-table td {
+        padding: 6px 0;
+      }
+      .info-table .label {
+        font-weight: 600;
+        color: #2d3748;
+        width: 20%;
+      }
+
+      .license-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        table-layout: fixed;
+        border: 1px solid #cbd5e0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      .license-table th,
+      .license-table td {
+        padding: 8px;
+        text-align: left;
+        vertical-align: middle;
+      }
+      .license-table th {
+        background-color: #0a2541;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 9pt;
+      }
+      .license-table td {
+        border-bottom: 1px solid #edf2f7;
+        background-color: #ffffff;
+      }
+      .license-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .license-key {
+        font-family: "SF Mono", "Courier New", monospace;
+        font-weight: 500;
+        color: #2b6cb0;
+        font-size: 9.5pt;
+        text-align: left;
+        max-width: 100px;
+        white-space: normal;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="C:\Users\Preethi.r\Desktop\cloudplatform\cloud_django\static\pdf_templates\droidal_logo_new 1.png"
+        width="200"
+        height="30"
+        alt="Droidal Logo"
+        class="logo"
+      />
+    </div>
+
+
+    <table class="info-table">
+      <tr>
+        <td class="label">Certificate ID:</td>
+        <td>{{ certificate_id }}</td>
+      </tr>
+      <tr>
+        <td class="label">Issue Date:</td>
+        <td>{{ issue_date }}</td>
+        <td class="label">Client Name:</td>
+        <td>{{ client_name }}</td>
+      </tr>
+    </table>
+
+    <table class="license-table">
+      <thead>
+        <tr>
+          <th style="width: 15%">Quantity</th>
+          <th style="width: 25%">Product Name</th>
+          <th style="width: 18%">Start Date</th>
+          <th style="width: 18%">End Date</th>
+          <th style="width: 42%">License Key</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.product_name }}</td>
+          <td>{{ item.start_date }}</td>
+          <td>{{ item.end_date }}</td>
+          <td class="license-key">{{ item.license_key }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="terms">
+      <h3>Terms & Conditions</h3>
+      <p>
+        This certificate confirms the purchase of a license for the software
+        product(s) listed above, subject to the Droidal End-User License
+        Agreement (EULA). This license is non-transferable. Unauthorized
+        reproduction or distribution of the software or license key is strictly
+        prohibited.
+      </p>
+    </div>
+
+    <div class="footer">
+      Thank you for choosing Droidal. | 4th Floor, Mohan Business Park,
+      Coimbatore | info@droidal.com
+    </div>
+  </body>
+</html>

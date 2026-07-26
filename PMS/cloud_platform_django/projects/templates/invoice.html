@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice {{ invoice_nr }} | Droidal LLC</title>
+    <style>
+        /* Enterprise Level Font Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 5px;
+            color: #1a1a1a;
+            line-height: 1.6;
+            font-weight: 400;
+            background: #ffffff;
+        }
+
+        .invoice-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 30px 30px 0;
+            width: 100%;
+        }
+
+        /* Header Section - Premium Styling */
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            border: none;
+        }
+
+        .header-table td {
+            vertical-align: top;
+            padding: 0;
+            border: none;
+        }
+
+        .header-table .company-info {
+            width: auto;
+            line-height: 1.8;
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            color: #2d3748;
+            font-weight: 400;
+        }
+
+        .company-name {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0056b3;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-table .logo-placeholder {
+            width: 150px;
+            height: 80px;
+            text-align: right;
+            padding-left: 20px;
+        }
+
+        .logo-placeholder img {
+            max-width: 150%;
+            max-height: 120%;
+            object-fit: contain;
+            filter: brightness(0.9);
+        }
+
+        /* Invoice Title Section - Premium Styling */
+        .invoice-title-section {
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .invoice-title-section table {
+            width: 100%;
+            border-collapse: collapse;
+            border: none;
+        }
+
+        .invoice-title-section td {
+            vertical-align: top;
+            padding: 0;
+            border: none;
+        }
+
+        .invoice-title-section .header-row td {
+            text-align: left;
+            padding-bottom: 15px;
+        }
+
+        .invoice-title-section .left-col {
+            width: 50%;
+        }
+
+        .invoice-title-section .right-col {
+            width: 50%;
+            text-align: right;
+        }
+
+        .invoice-header {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+            color: #0056b3;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .bill-to p,
+        .invoice-details p {
+            margin: 8px 0;
+            word-wrap: break-word;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .bill-to strong,
+        .invoice-details strong {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        /* Billing Period - Enhanced Styling */
+        .billing-period {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Main Table - Premium Styling */
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border: none;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .main-table th:nth-child(1),
+        .main-table td:nth-child(1) {
+            width: 15%;
+            text-align: left;
+        }
+
+        .main-table th:nth-child(2),
+        .main-table td:nth-child(2) {
+            width: 45%;
+            text-align: left;
+        }
+
+        .main-table th:nth-child(3),
+        .main-table td:nth-child(3) {
+            width: 10%;
+            text-align: center;
+        }
+
+        .main-table th:nth-child(4),
+        .main-table td:nth-child(4) {
+            width: 15%;
+            text-align: right;
+        }
+
+        .main-table th:nth-child(5),
+        .main-table td:nth-child(5) {
+            width: 15%;
+            text-align: right;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            border: none;
+            color: white;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px;
+            border: none;
+            vertical-align: top;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tbody tr:hover {
+            background-color: #f7fafc;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Period Group Headers */
+        .period-group {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            font-weight: 600;
+            color: #2d3748;
+            border-left: 4px solid #0056b3;
+        }
+
+        .period-group td {
+            padding: 16px 12px;
+            font-size: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .period-config {
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            font-size: 13px;
+            color: #2d3748;
+            border-left: 4px solid #38a169;
+        }
+
+        .period-config td {
+            padding: 12px;
+            font-weight: 500;
+            border-bottom: 1px solid #c6f6d5;
+        }
+
+        .period-config strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        /* Subtotal Rows */
+        .period-subtotal {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2d3748;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .period-subtotal td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .period-subtotal .total-label {
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .period-subtotal .total-amount {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0056b3;
+        }
+
+        /* Final Total Section - Premium Styling */
+        .final-total {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 12px;
+            /* border: 2px solid #e2e8f0; */
+        }
+
+        .total-amount {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #0056b3;
+            text-align: right;
+        }
+
+        .payment-details {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+
+        .payment-details strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        /* Headers and Titles */
+        h2 {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Currency Formatting */
+        .currency {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Date Styling */
+        .date-cell {
+            font-size: 13px;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        /* Description Styling */
+        .description-cell {
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .invoice-container {
+                padding: 20px 15px;
+            }
+            
+            .invoice-header {
+                font-size: 28px;
+            }
+            
+            .company-name {
+                font-size: 20px;
+            }
+            
+            .main-table {
+                font-size: 12px;
+            }
+            
+            .main-table th,
+            .main-table td {
+                padding: 8px 6px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .invoice-container {
+                padding: 0;
+                max-width: 100%;
+            }
+            
+            .billing-period {
+                background: #0056b3 !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            th {
+                background: #0056b3 !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .period-group {
+                background: #f7fafc !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <!-- Header with company info and logo as table -->
+        <table class="header-table">
+            <tr>
+                <td class="company-info">
+                    <div class="company-name">Droidal LLC</div>
+                    5465 Legacy Dr Site 650<br>
+                    Plano, TX 75024 US<br>
+                    <span style="font-size: 13px; color: #718096;">Enterprise Billing Solutions</span>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Invoice title and details section -->
+        <div class="invoice-title-section">
+            <table>
+                <tr class="header-row">
+                    <td colspan="2">
+                        <h1 class="invoice-header">INVOICE</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left-col">
+                        <div class="bill-to">
+                            <p><strong>Bill To:</strong></p>
+                            <p style="font-weight: 500; color: #2d3748;">{{ bill_to }}</p>
+                            {% if bill_to_address %}<p>{{ bill_to_address }}</p>{% endif %}
+                            {% if bill_to_email %}<p>{{ bill_to_email }}</p>{% endif %}
+                            {% if bill_to_tax_id %}<p style="font-size: 13px;">Tax ID: {{ bill_to_tax_id }}</p>{% endif %}
+                        </div>
+                    </td>
+                    <td class="right-col">
+                        <div class="invoice-details">
+                            <p><strong>Invoice Num:</strong> <span style="font-family: 'Courier New', monospace; font-weight: 600;">{{ invoice_nr }}</span></p>
+                            <p><strong>Date:</strong> {{ invoice_date }}</p>
+                            <p><strong>Due Date:</strong> <span style="color: #e53e3e; font-weight: 600;">{{ payment_due }}</span></p>
+                            {% if order_id %}<p><strong>Order ID:</strong> {{ order_id }}</p>{% endif %}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Billing period -->
+        <div class="billing-period">
+            <strong>Billing Period:</strong> {{ billing_period }}
+        </div>
+
+        <!-- Single Consolidated Table for All Items -->
+        <!-- <h2>Invoice Details</h2> -->
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th>Date Range</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for period in period_items %}
+                    <!-- Period Header Row -->
+                    <!-- <tr class="period-group">
+                        <td colspan="5">
+                            Period {{ period.period_number }}: {{ period.license_tier|upper }} License 
+                            ({{ period.start_date|date:"M d, Y" }} to {{ period.end_date|date:"M d, Y" }} - {{ period.days }} days)
+                            - {{ period.transactions }} transactions
+                        </td>
+                    </tr> -->
+
+                    <!-- Period Configuration Row -->
+                    {% if period.items.0.config %}
+                    <tr class="period-config">
+                        <td colspan="5">
+                            <strong>Pricing Configuration:</strong>
+                            {% if period.license_tier == 'lite' %}
+                                Rate: ${{ period.items.0.config.rate|floatformat:4 }}/transaction
+                            {% else %}
+                                Tier 1: {{ period.items.0.config.tier1|floatformat:0 }} transactions included • 
+                                Tier 2: {{ period.items.0.config.tier2|floatformat:0 }} transactions • 
+                                Rate 1: ${{ period.items.0.config.rate1|floatformat:4 }}/transaction • 
+                                Rate 2: ${{ period.items.0.config.rate2|floatformat:4 }}/transaction
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endif %}
+
+                    <!-- Period Items -->
+                    {% for item in period.items %}
+                    <tr>
+                        <td class="date-cell">
+                            {{ period.start_date|date:"M d" }} - {{ period.end_date|date:"M d, Y" }}
+                        </td>
+                        <td class="description-cell">{{ item.description }}</td>
+                        <td>
+                            {% if "transaction" in item.description.lower %}
+                                {{ item.quantity|floatformat:0 }}
+                            {% else %}
+                                {{ item.quantity }}
+                            {% endif %}
+                        </td>
+                        <td class="currency">
+                            {% if item.price > 0 %}
+                                ${{ item.price|floatformat:2 }}
+                            {% else %}
+                                <span style="color: #718096; font-style: italic;">Included</span>
+                            {% endif %}
+                        </td>
+                        <td class="currency" style="font-weight: 600;">${{ item.total|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+
+                    <!-- Period Subtotal -->
+                    <!-- <tr class="period-subtotal">
+                        <td colspan="3"></td>
+                        <td class="total-label">Period {{ period.period_number }} Total:</td>
+                        <td class="currency total-amount">${{ period.period_total|floatformat:2 }}</td>
+                    </tr> -->
+                {% endfor %}
+
+                <!-- Other Costs Section -->
+                {% if other_items %}
+                    <tr class="period-group">
+                        <td colspan="5">Additional Costs</td>
+                    </tr>
+                    
+                    {% for item in other_items %}
+                    <tr>
+                        <td class="date-cell">{{ billing_period }}</td>
+                        <td class="description-cell">{{ item.description }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td class="currency">${{ item.price|floatformat:2 }}</td>
+                        <td class="currency" style="font-weight: 600;">${{ item.total|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+
+                    <!-- Other Costs Subtotal - Fixed calculation -->
+                    <tr class="period-subtotal">
+                        <td colspan="3"></td>
+                        <td class="total-label">Additional Costs Total:</td>
+                        <td class="currency total-amount">
+                            {% with other_total=0 %}
+                                {% for item in other_items %}
+                                    {% widthratio item.total 1 1 as item_amount %}
+                                    {{ item_amount|add:other_total }}
+                                {% endfor %}
+                            {% endwith %}
+                            ${{ other_costs_total|floatformat:2 }}
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <!-- Final Total - Premium Styling -->
+        <div class="final-total">
+            <table>
+                <tfoot>
+                    <tr>
+                        <td style="border: none; padding: 0;">
+                            <div class="payment-details">
+                                <strong>Payment Details:</strong><br>
+                                Bank Name: Bank of America<br>
+                                Account Number: 4880 8384 9499<br>
+                                Routing Number: 111000025
+                            </div>
+                        </td>
+                        <td colspan="2" style="border: none; padding: 0; text-align: right; vertical-align: bottom;">
+                            <strong style="font-size: 18px; color: #2d3748;">Total Amount Due:</strong>
+                        </td>
+                        <td style="border: none; padding: 0; text-align: right; vertical-align: bottom;">
+                            <div class="total-amount">${{ total|floatformat:2 }}</div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+
+#app.views.UserDetailView.get_objectE
+;D:\cloud-Droidal\CLOUD_DROIDAL_BETA\droidal2.0\app\views.py ("2*ß
+2 ("^
+\
+ (
+%9"__id*D
+
+__unknown_file ((*&
+app.views.UserDetailView"
+kwargs`^
+ ("
+%10*"
+
+__unknown_file (
+
+%9*"
+
+__unknown_file (
+pk2get=
+;
+ ("
+pk"__id*#
+
+__unknown_file (
+
+%10b
+`
+ (:
+%11"__concat*/
+ (5#!
+Retrieving UserDetails with id=*
+6 (8
+
+pkfd
+ (;
+%12*&
+
+__unknown_file (
+
+
+logger*#
+
+__unknown_file (
+
+%112info*
+7*É
+7! !(1ZX
+! !(&
+%5*8
+
+__unknown_file (
+app.views.UserDetailView2get_querysetIG
+! !(1
+%6*"
+
+__unknown_file (
+
+%52get:
+id
+
+pk>
+<
+! !(1
+user"__id*"
+
+__unknown_file (
+
+%6W
+U
+" "(4
+%7"__concat*#
+" "(-
+Found UserDetails: *
+". "(2
+
+userdb
+" "(5
+%8*&
+
+__unknown_file (
+
+
+logger*"
+
+__unknown_file (
+
+%72info"
+# #(
+
+userB
+app.views.UserDetailViewH

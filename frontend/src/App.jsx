@@ -24,6 +24,8 @@ import KioskBuilder from "./pages/KioskBuilder.jsx";
 import Licenses from "./pages/Licenses.jsx";
 import Login from "./pages/Login.jsx";
 import ModulePage from "./pages/ModulePage.jsx";
+import PmsPortal from "./pages/PmsPortal.jsx";
+import ReferralPortal from "./pages/ReferralPortal.jsx";
 import Register from "./pages/Register.jsx";
 import ReviewQueue from "./pages/ReviewQueue.jsx";
 import ScheduledRuns from "./pages/ScheduledRuns.jsx";
@@ -32,6 +34,7 @@ import SkillRunner from "./pages/SkillRunner.jsx";
 import Vault from "./pages/Vault.jsx";
 import VobPortal from "./pages/VobPortal.jsx";
 import VoiceAI from "./pages/VoiceAI.jsx";
+import VoipPlatform from "./pages/VoipPlatform.jsx";
 
 export default function App() {
   return (
@@ -50,6 +53,26 @@ export default function App() {
         }
       />
 
+      {/* Full-screen embedded referral-automation app (has its own layout). */}
+      <Route
+        path="/referral-workflow"
+        element={
+          <ProtectedRoute>
+            <ReferralPortal />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Full-screen embedded PMS / EHR app (own front + back end). */}
+      <Route
+        path="/pms"
+        element={
+          <ProtectedRoute>
+            <PmsPortal />
+          </ProtectedRoute>
+        }
+      />
+
       {/* Authenticated area — the layout provides the sidebar + topbar. */}
       <Route
         element={
@@ -60,6 +83,7 @@ export default function App() {
       >
         <Route path="/" element={<Dashboard />} />
         <Route path="/decision-engine" element={<DecisionEngine />} />
+        <Route path="/voip" element={<VoipPlatform />} />
         <Route path="/eligibility-verification" element={<EligibilityVerification />} />
         <Route path="/ai-front-desk-kiosk" element={<KioskBuilder />} />
         <Route path="/m/:slug" element={<ModulePage />} />

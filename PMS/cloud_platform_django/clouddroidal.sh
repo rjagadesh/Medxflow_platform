@@ -1,0 +1,1 @@
+/home/ubuntu/cloud_platform_django/bin/python -m uvicorn cloudproject.asgi:application --host 0.0.0.0 --port 8000

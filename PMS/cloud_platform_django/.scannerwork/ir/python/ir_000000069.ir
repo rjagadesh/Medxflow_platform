@@ -1,0 +1,38 @@
+
+	trueboolself ("request$ (+view- (1obj3 (6
+app.models.ProjectDetails"Å'
+%
+ ("#get-field# method:!
+
+ (("#unknown-value#-
++
+ (5"#get-field# SAFE_METHODS:*
+(
+ (5"
+#binop in#2in:Bbool"
+ (5 * (
+"
+ (	"U)
+'
++ (J"#is-instance#:
+Bbool&"$
++ (J *( (*2K (O"Œ%
+#
+ ("#get-field# user:%
+#
+ ('"#get-field# user:*
+(
+ ('"
+#binop ==#2==:Bbool
+ (p"¶(
+&
+P (["#get-field# project:%
+#
+P (`"#get-field# user:%
+#
+d (p"#get-field# user:*
+(
+P (p"
+#binop ==#2==:Bbool
+ (p"$*
+ (p*;D:\cloud-Droidal\CLOUD_DROIDAL_BETA\droidal2.0\app\views.py

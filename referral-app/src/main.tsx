@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+// HashRouter so the app works when embedded under a subpath (/referral/) with
+// no server-side route rewriting.
+import { HashRouter } from "react-router-dom";
 import App from "./App";
 import { ThemeProvider } from "./lib/theme";
 import "./index.css";
@@ -8,9 +10,9 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   </React.StrictMode>
 );

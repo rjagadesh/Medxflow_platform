@@ -1,0 +1,18 @@
+
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document -->
+  <rect x="45" y="30" width="75" height="110" rx="8"
+        fill="none" stroke="white" stroke-width="7"/>
+
+  <!-- Text lines -->
+  <line x1="60" y1="60" x2="105" y2="60" stroke="white" stroke-width="7"/>
+  <line x1="60" y1="80" x2="105" y2="80" stroke="white" stroke-width="7"/>
+  <line x1="60" y1="100" x2="105" y2="100" stroke="white" stroke-width="7"/>
+
+  <!-- Clock -->
+  <circle cx="135" cy="120" r="28" fill="none" stroke="white" stroke-width="7"/>
+  <line x1="135" y1="120" x2="135" y2="100" stroke="white" stroke-width="7"/>
+  <line x1="135" y1="120" x2="155" y2="120" stroke="white" stroke-width="7"/>    
+
+</svg>
+

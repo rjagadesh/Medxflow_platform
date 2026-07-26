@@ -1,0 +1,77 @@
+.login-container {
+  font-family: "asen-pro", sans-serif;
+  height: 100vh;
+  background: url("../assets/img/login-bg.webp") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.login-box {
+  /* background-image: url("../../assets/img/card-bg.png"); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 40px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 136, 255, 0.4);
+  width: 360px;
+  text-align: center;
+  color: white;
+  opacity: 0.88;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.logo span {
+  color: #0af;
+}
+
+h2 {
+  margin: 10px 0 20px;
+  font-weight: 600;
+}
+
+/* input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  color: #808080;
+  font-size: 14px;
+} */
+
+input::placeholder {
+  color: #aaa;
+}
+
+.login-btn {
+  background: linear-gradient(to right, #00aaff, #0077ff);
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  margin-top: 12px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.login-box a {
+  color: #0af;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.login-box a:hover {
+  text-decoration: underline;
+}

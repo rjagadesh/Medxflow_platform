@@ -1,0 +1,421 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedXFlow Admin & Settings - Full UI/UX</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f6fa;
+      color: #333;
+    }
+    .sidebar {
+      width: 260px;
+      background: #1e1e2f;
+      color: #fff;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .sidebar a {
+      display: block;
+      color: #bbb;
+      text-decoration: none;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+      cursor: pointer;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: #2d2d44;
+      color: #fff;
+    }
+    .content {
+      margin-left: 280px;
+      padding: 30px;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    .section h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: #222;
+    }
+    ul.options {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    ul.options li {
+      background: #f0f0f0;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    ul.options li:hover {
+      background: #e0e0e0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    .btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-add { background: #4CAF50; color: white; }
+    .btn-edit { background: #2196F3; color: white; }
+    .btn-delete { background: #f44336; color: white; }
+    .btn-export { background: #9C27B0; color: white; }
+    .api-key-box { background: #f9f9f9; padding: 10px; border-radius: 6px; font-family: monospace; font-size: 14px; }
+    .form-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 1000; width: 400px; max-width: 90%; }
+    .form-popup h4 { margin-top: 0; margin-bottom: 15px; font-size: 18px; text-align: center; }
+    .form-popup input, .form-popup select { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; }
+    .form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 999; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>MedXFlow Portal</h2>
+    <a class="tablink active" data-target="admin">Admin Dashboard</a>
+      <a class="tablink" href="billingview.html" data-target="settings">Settings Panel</a>
+  </div>
+
+  <div class="content">
+    <!-- Admin Section -->
+    <div id="admin" class="section active">
+      <h3>Admin Dashboard</h3>
+      <ul class="options">
+        <li onclick="showSection('userRole')">User & Role Management</li>
+        <li onclick="showSection('appManagement')">App & Module Management</li>
+        <li onclick="showSection('subscription')">Subscription & Licensing</li>
+        <li onclick="showSection('auditTrail')">Audit Trail</li>
+        <li onclick="showSection('integrations')">Integrations</li>
+        <li onclick="showSection('orgSettings')">Organization Settings</li>
+        <li onclick="showSection('notifications')">Notifications & Alerts</li>
+        <li onclick="showSection('performance')">Performance Monitoring</li>
+      </ul>
+
+      <!-- User & Role Management -->
+      <div id="userRole" style="display:none;">
+        <h3>User & Role Management</h3>
+        <button class="btn btn-add" onclick="openUserForm()">+ Add User</button>
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Email</th><th>Role</th><th>Module Access</th><th>Last Login</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>John Doe</td><td>john@example.com</td><td>Admin</td><td>All</td><td>2025-08-05</td><td><button class="btn btn-edit">Edit</button><button class="btn btn-delete">Delete</button></td></tr>
+            <tr><td>Jane Smith</td><td>jane@example.com</td><td>Agent</td><td>Claims, Intake</td><td>2025-08-04</td><td><button class="btn btn-edit">Edit</button><button class="btn btn-delete">Delete</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- App & Module Management -->
+      <div id="appManagement" style="display:none;">
+        <h3>App & Module Management</h3>
+        <table>
+          <thead>
+            <tr><th>User</th><th>Droid ABA</th><th>Transcribe</th><th>Claims Processing</th><th>Patient Intake</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>John Doe (Admin)</td><td><input type="checkbox" checked></td><td><input type="checkbox" checked></td><td><input type="checkbox" checked></td><td><input type="checkbox" checked></td><td><button class="btn btn-edit">Save</button></td></tr>
+            <tr><td>Jane Smith (Agent)</td><td><input type="checkbox"></td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox" checked></td><td><button class="btn btn-edit">Save</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Subscription & Licensing -->
+      <div id="subscription" style="display:none;">
+        <h3>Subscription & Licensing</h3>
+        <table>
+          <thead>
+            <tr><th>Plan</th><th>Modules</th><th>Seats</th><th>Expiry</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Enterprise</td><td>All</td><td>500</td><td>2026-01-01</td><td><button class="btn btn-edit">Manage</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Audit Trail -->
+      <div id="auditTrail" style="display:none;">
+        <h3>Audit Trail</h3>
+        <button class="btn btn-export">Export Logs (CSV)</button>
+        <table>
+          <thead>
+            <tr><th>User</th><th>Action</th><th>App</th><th>Date</th><th>IP</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>John Doe</td><td>Edited Claim</td><td>Claims Processing</td><td>2025-08-05</td><td>192.168.1.1</td></tr>
+            <tr><td>Jane Smith</td><td>Updated Schedule</td><td>Patient Intake</td><td>2025-08-04</td><td>192.168.1.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Integrations -->
+      <div id="integrations" style="display:none;">
+        <h3>Integrations</h3>
+        <button class="btn btn-add" onclick="openIntegrationForm()">+ Add Integration</button>
+        <table>
+          <thead><tr><th>App</th><th>API Key</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>Droid ABA</td><td><div class="api-key-box">************</div></td><td><button class="btn btn-edit">Regenerate</button></td></tr>
+            <tr><td>Transcribe</td><td><div class="api-key-box">************</div></td><td><button class="btn btn-edit">Regenerate</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Organization Settings -->
+      <div id="orgSettings" style="display:none;">
+        <h3>Organization Settings</h3>
+        <button class="btn btn-edit">Upload Branding</button>
+        <p>Manage tenant configs, upload logo, custom colors, and org-wide notifications.</p>
+      </div>
+
+      <!-- Notifications -->
+      <!-- Notifications -->
+      <div id="notifications" style="display:none;">
+        <h3>Notifications & Alerts</h3>
+        <form>
+          <label>Email for Alerts:</label>
+          <input type="email" placeholder="alerts@example.com">
+          <label>Mobile Number:</label>
+          <input type="text" placeholder="+1 555-123-4567">
+          <label>Alert Types:</label>
+          <select>
+            <option>Claim Rejections</option>
+            <option>Cash Reconciliation Errors</option>
+            <option>System Downtime</option>
+          </select>
+          <div class="form-actions">
+            <button class="btn btn-add">Save Settings</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Performance Monitoring -->
+      <div id="performance" style="display:none;">
+        <h3>Performance Monitoring</h3>
+        <label>Select Period:</label>
+        <select>
+          <option>Last 24 Hours</option>
+          <option>Last 7 Days</option>
+          <option>Last 30 Days</option>
+        </select>
+
+        <div class="chart-box">
+          <h4>System Health</h4>
+          <p>✅ Uptime: 99.98% | ⚠️ Errors: 0.2%</p>
+        </div>
+        <div class="chart-box">
+          <h4>App Transactions Report</h4>
+          <p>[Graph Placeholder: Transactions over time]</p>
+        </div>
+        <div class="chart-box">
+          <h4>Module Usage</h4>
+          <p>[Graph Placeholder: Usage per module]</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div id="settings" class="section">
+      <h3>Settings Panel (Per User/Team)</h3>
+      <ul class="options">
+        <li onclick="showSection('profile')">User Profile</li>
+        <li onclick="showSection('preferences')">App Preferences</li>
+        <li onclick="showSection('notifSettings')">Notification Settings</li>
+        <li onclick="showSection('dataSettings')">Data Settings</li>
+        <li onclick="showSection('devTools')">Developer Tools</li>
+        <li onclick="showSection('billing')">Billing View</li>
+      </ul>
+
+      <!-- User Profile -->
+      <div id="profile" style="display:none;">
+        <h3>User Profile</h3>
+        <p>Edit name, email, mobile, preferred language. Change password and enable 2FA.</p>
+      </div>
+
+      <!-- Preferences -->
+      <div id="preferences" style="display:none;">
+        <h3>App Preferences</h3>
+        <p>Select default landing app, choose layout view (grid/card), enable dark mode.</p>
+      </div>
+
+      <!-- Notification Settings -->
+      <div id="notifSettings" style="display:none;">
+        <h3>Notification Settings</h3>
+        <p>Mute specific module alerts, configure escalations for failed claims or transactions.</p>
+      </div>
+
+      <!-- Data Settings -->
+      <div id="dataSettings" style="display:none;">
+        <h3>Data Settings</h3>
+        <p>Export activity logs, privacy/data consent, request account deletion.</p>
+      </div>
+
+      <!-- Developer Tools -->
+      <div id="devTools" style="display:none;">
+        <h3>Developer Tools</h3>
+        <p>Generate API tokens, configure endpoints, enable developer mode for apps.</p>
+      </div>
+
+      <!-- Billing View -->
+      <div id="billing" style="display:none;">
+        <h3>Billing View</h3>
+        <p>App-wise billing summary, usage costs, payment methods.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add User Form -->
+  <div class="overlay" id="overlay"></div>
+  <div class="form-popup" id="userForm">
+    <h4>Add New User</h4>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <select><option value="admin">Admin</option><option value="teamlead">Team Lead</option><option value="agent">Agent</option><option value="partner">Partner</option></select>
+    <select><option value="active">Active</option><option value="inactive">Inactive</option></select>
+    <div class="form-actions"><button class="btn btn-delete" onclick="closeUserForm()">Cancel</button><button class="btn btn-add">Save</button></div>
+  </div>
+
+  <!-- Integration Form -->
+  <div class="form-popup" id="integrationForm">
+    <h4>Generate API Key</h4>
+    <select id="integrationApp">
+      <option value="droidaba">Droid ABA</option>
+      <option value="voice">Transcribe</option>
+      <option value="claims">Claims Processing</option>
+      <option value="intake">Patient Intake</option>
+    </select>
+    <div class="form-actions">
+      <button class="btn btn-delete" onclick="closeIntegrationForm()">Cancel</button>
+      <button class="btn btn-add" onclick="generateApiKey()">Generate</button>
+    </div>
+  </div>
+  <!-- Notifications -->
+  <div id="notifications" style="display:none;">
+    <h3>Notifications & Alerts</h3>
+    <form>
+      <label>Email for Alerts:</label>
+      <input type="email" placeholder="alerts@example.com">
+      <label>Mobile Number:</label>
+      <input type="text" placeholder="+1 555-123-4567">
+      <label>Alert Types:</label>
+      <select>
+        <option>Claim Rejections</option>
+        <option>Cash Reconciliation Errors</option>
+        <option>System Downtime</option>
+      </select>
+      <div class="form-actions">
+        <button class="btn btn-add">Save Settings</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Performance Monitoring -->
+  <div id="performance" style="display:none;">
+    <h3>Performance Monitoring</h3>
+    <label>Select Period:</label>
+    <select>
+      <option>Last 24 Hours</option>
+      <option>Last 7 Days</option>
+      <option>Last 30 Days</option>
+    </select>
+
+    <div class="chart-box">
+      <h4>System Health</h4>
+      <p>✅ Uptime: 99.98% | ⚠️ Errors: 0.2%</p>
+    </div>
+    <div class="chart-box">
+      <h4>App Transactions Report</h4>
+      <p>[Graph Placeholder: Transactions over time]</p>
+    </div>
+    <div class="chart-box">
+      <h4>Module Usage</h4>
+      <p>[Graph Placeholder: Usage per module]</p>
+    </div>
+  </div>
+</div>
+</div>
+
+  <script>
+    const tabLinks = document.querySelectorAll('.tablink');
+    const sections = document.querySelectorAll('.section');
+
+    tabLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        tabLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        sections.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(link.getAttribute('data-target')).classList.add('active');
+      });
+    });
+
+    function showSection(id) {
+      const allSections = document.querySelectorAll('#admin > div, #settings > div');
+      allSections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function openUserForm() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('userForm').style.display = 'block';
+    }
+    function closeUserForm() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('userForm').style.display = 'none';
+    }
+
+    function openIntegrationForm() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('integrationForm').style.display = 'block';
+    }
+    function closeIntegrationForm() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('integrationForm').style.display = 'none';
+    }
+    function generateApiKey() {
+      const app = document.getElementById('integrationApp').value;
+      alert('New API Key generated for ' + app);
+      closeIntegrationForm();
+    }
+  </script>
+</body

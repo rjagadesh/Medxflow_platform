@@ -1,0 +1,7 @@
+organization=droidal-ws
+projectKey=droidal_ws_cloud_platform_django
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.65851
+dashboardUrl=https://sonarcloud.io/dashboard?id=droidal_ws_cloud_platform_django
+ceTaskId=AZh0zskT6V0itlA1wg9X
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZh0zskT6V0itlA1wg9X

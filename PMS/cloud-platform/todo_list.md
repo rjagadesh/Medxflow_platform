@@ -1,0 +1,3 @@
+- [x] Move 'Add' and 'Save' buttons from top header to bottom of the left column in `src/pages/voice-ai/outputJson.jsx`
+- [x] Remove full-page conditional loading
+- [x] Add loading spinner to the center of the left section (Extraction Prompts) when `isLoading` is true

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .invoice-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main container table */
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        /* Header section */
+        .header-section {
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .header-cell {
+            padding: 40px 50px;
+        }
+        
+        .company-name {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+        
+        .company-details {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+        
+        .invoice-title-section {
+            background: #2d2d2d;
+            text-align: right;
+            padding: 40px 50px;
+        }
+        
+        .invoice-title {
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        
+        .invoice-date {
+            font-size: 13px;
+            color: #cccccc;
+        }
+        
+        .invoice-date strong {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Billing information section */
+        .billing-section {
+            padding: 0;
+        }
+        
+        .billing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .billing-cell {
+            padding: 35px 50px;
+            vertical-align: top;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .billing-cell:first-child {
+            border-right: 1px solid #e0e0e0;
+            width: 50%;
+        }
+        
+        .billing-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1a1a1a;
+            display: inline-block;
+        }
+        
+        .billing-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .billing-content strong {
+            font-size: 16px;
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        /* Items table section */
+        .items-section {
+            padding: 0 50px 20px 50px;
+        }
+        
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .items-table thead th {
+            background: #f8f8f8;
+            padding: 18px 15px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            border-top: 2px solid #1a1a1a;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .items-table thead th:last-child,
+        .items-table tbody td:last-child,
+        .items-table tfoot td:last-child {
+            text-align: right;
+        }
+        
+        .items-table tbody td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .items-table tbody tr:hover {
+            background: #fafafa;
+        }
+        
+        .items-table tfoot td {
+            padding: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .items-table tfoot tr:last-child td {
+            background: #1a1a1a;
+            color: white;
+            font-size: 18px;
+            padding: 20px 15px;
+            border-bottom: none;
+        }
+        
+        .items-table tfoot tr:last-child td:first-child {
+            text-align: right;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Payment terms section */
+        .payment-section {
+            padding: 30px 50px;
+            background: #f8f8f8;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .payment-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .payment-content {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        /* Footer section */
+        .footer-section {
+            padding: 30px 50px;
+            background: #1a1a1a;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .invoice-wrapper {
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-cell,
+            .invoice-title-section,
+            .billing-cell,
+            .items-section,
+            .payment-section,
+            .footer-section {
+                padding: 25px;
+            }
+            
+            .company-name {
+                font-size: 28px;
+            }
+            
+            .invoice-title {
+                font-size: 32px;
+            }
+            
+            .billing-cell:first-child {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .items-table {
+                font-size: 12px;
+            }
+            
+            .items-table thead th,
+            .items-table tbody td,
+            .items-table tfoot td {
+                padding: 12px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-wrapper">
+        <table class="main-table">
+            <!-- Header Section -->
+            <tr class="header-section">
+                <td class="header-cell">
+                    <div class="company-name">DROIDAL</div>
+                    <div class="company-details">
+                        4th Floor, Mohan Business Park<br>
+                        Thudiyalur - Saravanampatti Rd, Fathima Nagar<br>
+                        Coimbatore, Tamil Nadu 641029<br>
+                        Email: admin@droidal.com
+                    </div>
+                </td>
+                <td class="invoice-title-section">
+                    <div class="invoice-title">INVOICE</div>
+                    <div class="invoice-date">
+                        <strong>DATE:</strong> {{ invoice_date }}
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- Billing Information Section -->
+            <tr>
+                <td colspan="2" class="billing-section">
+                    <table class="billing-table">
+                        <tr>
+                            <td class="billing-cell">
+                                <div class="billing-label">Bill To</div>
+                                <div class="billing-content">
+                                    <strong>{{ bill_to }}</strong>
+                                    {{ bill_to_address }}<br>
+                                    Email: {{ bill_to_email }}
+                                </div>
+                            </td>
+                            <td class="billing-cell">
+                                <div class="billing-label">From</div>
+                                <div class="billing-content">
+                                    <strong>Droidal</strong>
+                                    4th Floor, Mohan Business Park<br>
+                                    Coimbatore, Tamil Nadu 641029<br>
+                                    Email: admin@droidal.com
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <!-- Items Section -->
+            <tr>
+                <td colspan="2" class="items-section">
+                    <table class="items-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50%;">Description</th>
+                                <th style="width: 15%;">Quantity</th>
+                                <th style="width: 17.5%;">Price</th>
+                                <th style="width: 17.5%;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if items %}
+                                {% for item in items %}
+                                    <tr>
+                                        <td>{{ item.description }}</td>
+                                        <td>{{ item.quantity }}</td>
+                                        <td>${{ item.price|floatformat:2 }}</td>
+                                        <td>${{ item.total|floatformat:2 }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="4" class="empty-state">
+                                        No transactions for this period.
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" style="text-align: right;">SUBTOTAL</td>
+                                <td>${{ sub_total|floatformat:2 }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">TOTAL AMOUNT DUE</td>
+                                <td>${{ total|floatformat:2 }}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </td>
+            </tr>
+            
+            <!-- Payment Terms Section -->
+            <tr>
+                <td colspan="2" class="payment-section">
+                    <div class="payment-label">Payment Terms</div>
+                    <div class="payment-content">
+                        Please remit payment within 30 days via bank transfer to Account #123456789, Routing #987654321, or Stripe to payments@yourcompany.com.
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- Footer Section -->
+            <tr>
+                <td colspan="2" class="footer-section">
+                    Thank you for your business! If you have any questions, contact us at 
+                    <a href="mailto:admin@droidal.com">admin@droidal.com</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
